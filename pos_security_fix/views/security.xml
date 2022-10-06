@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--Orders-->
+    <record id="point_of_sale.action_pos_pos_form" model="ir.actions.act_window">
+        <field name="domain">[('my_branches','=',1)]</field>
+    </record>
+<!--Sessions-->
+    <record id="point_of_sale.action_pos_session" model="ir.actions.act_window">
+        <field name="domain">[('my_session','=',1)]</field>
+    </record>
+<!--Payments-->
+  <record id="point_of_sale.action_pos_payment_form" model="ir.actions.act_window">
+        <field name="domain">[('my_payment','=',1)]</field>
+    </record>
+<!--    POS Config-->
+      <record id="point_of_sale.action_pos_config_kanban" model="ir.actions.act_window">
+        <field name="domain">[]</field>
+    </record>
+
+<!--    Report POS Order-->
+          <record id="point_of_sale.action_report_pos_order_all" model="ir.actions.act_window">
+        <field name="domain">[('my_report','=',1)]</field>
+    </record>
+
+</odoo>
