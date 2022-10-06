@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+<templates id="template" xml:space="preserve">
+    <!-- <t t-name="Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+        <xpath expr="//ul[hasclass('info-list')]//li[hasclass('info')]" position="inside">
+            <span class="button-uom">
+                <i class="fa fa-balance-scale"></i>
+            </span>
+        </xpath>
+    </t> -->
+
+    <t t-name="Orderline" t-inherit="point_of_sale.ProductItem" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('product-name')]" position="inside">
+            <div class="button-uom">
+        </div>
+        
+        </xpath>
+    </t>
+
+    <t t-name="UnitSelectionPopupWidget" owl="1">
+        <div class="modal-dialog">
+            <div class="popup popup-selection">
+                <p class="title"><t t-esc=" props.title || 'Select' " /></p>
+                <div class='selection scrollable-y touch-scrollable'>
+                    <t t-foreach="props.list || []" t-as="item">
+                        <div class="selection-item selection-unit" t-att-class="{ selected: item.selected }" t-on-click="click_item" t-att-data-item-index='item_index'>
+                            <t t-esc='item.label'/>
+                        </div>
+                    </t>
+                </div>
+                <div class="footer">
+                    <div class="button confirm" t-on-click="click_confirm" t-att-class="{ oe_hidden: !props.is_selected}">
+                        Ok
+                    </div>
+                    <div class="button cancel" t-on-click="cancel">
+                        Cancel
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
