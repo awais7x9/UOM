@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<templates id="template" xml:space="preserve">
+    <t t-name="NumberPopupCustom" t-inherit="point_of_sale.NumberPopup" t-inherit-mode="extension" owl="1">
+        <xpath expr="//header[hasclass('drag-handle')]" position="after">
+            <t t-if="props.title=='Universal Discount'">
+                <select name="discount_type" class="discount_type_select">
+                    <option value="amount">Fixed</option>
+                    <option value="percent">Percent</option>
+                </select>
+            </t>
+        </xpath>
+    </t>
+
+</templates>
