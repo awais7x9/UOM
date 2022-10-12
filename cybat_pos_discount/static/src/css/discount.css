@@ -1,0 +1,15 @@
+
+
+.discount_type_select {
+    min-width: 80%;
+    min-height: 27px;
+    margin-top: 5px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #333333c9;
+    padding: 2px 4px;
+    margin-bottom: 10px;
+}
+.pos .popup.popup-number {
+    height: 494px !important;
+}
