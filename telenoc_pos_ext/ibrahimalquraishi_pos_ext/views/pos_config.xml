@@ -1,0 +1,95 @@
+<odoo>
+    <data>
+        <record id="pos_config_view_form" model="ir.ui.view">
+            <field name="name">pos.config.form.view</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet[1]/div[5]" position="after">
+                    <h2 name="order">Promotions</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="promotion_enable"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="promotion_enable"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt16 o_settings_container" id="allowed_promotion_category">
+                        <div class="col-xs-12 col-md-6 o_setting_box" title="Allowed Promotion Categories">
+                            <div class="o_setting_right_pane">
+                                <label for="product_category_bg_id"
+                                       attrs="{'invisible': [('promotion_enable', '=', False)]}"/>
+                                <br/>
+                                <span>Product Category for Buy 1 get 1 Free Promotion</span>
+                                <div class="content-group mt16">
+                                    <field name="product_category_bg_id" widget="many2many_tags" options="{'no_create': True}"
+                                           attrs="{'invisible': [('promotion_enable', '=', False)]}"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box" title="Excluded Products">
+                            <div class="o_setting_right_pane">
+                                <label for="ex_bg_product_ids"
+                                       attrs="{'invisible': [('promotion_enable', '=', False)]}"/>
+                                <br/>
+                                <span>Excluded Product for Buy 1 get 1 Free Promotion</span>
+                                <div class="content-group mt16">
+                                    <field name="ex_bg_product_ids" options="{'no_create': True}"
+                                           widget="many2many_tags"
+                                           attrs="{'invisible': [('promotion_enable', '=', False)]}"
+                                           domain="[('categ_id','in', product_category_bg_id)]"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt16 o_settings_container" id="allowed_promotion_category">
+                        <div class="col-xs-12 col-md-6 o_setting_box" title="Allowed Promotion Categories">
+                            <div class="o_setting_right_pane">
+                                <label for="product_category_same_id"
+                                       attrs="{'invisible': [('promotion_enable', '=', False)]}"/>
+                                <br/>
+                                <span>Product Category for Same Quantity Promotion</span>
+                                <div class="content-group mt16">
+                                    <field name="product_category_same_id"
+                                           options="{'no_create': True}"
+                                           attrs="{'invisible': [('promotion_enable', '=', False)]}"/>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="col-xs-12 col-md-6 o_setting_box" title="Excluded Products">
+                        <div class="o_setting_right_pane">
+                            <label for="ex_same_product_ids"
+                                   attrs="{'invisible': [('promotion_enable', '=', False)]}"/>
+                            <br/>
+                            <span>Excluded Product for Same Quantity Promotion</span>
+                            <div class="content-group mt16">
+                                <field name="ex_same_product_ids" widget="many2many_tags"
+                                       options="{'no_create': True}"
+                                       attrs="{'invisible': [('promotion_enable', '=', False)]}"
+                                       domain="[('categ_id','=', product_category_same_id)]"/>
+                            </div>
+
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row mt16 o_settings_container" id="allowed_promotion_category">
+                        <div class="col-xs-12 col-md-6 o_setting_box" title="Allowed Promotion Categories">
+                            <div class="o_setting_right_pane">
+                                <label for="same_pro_qty" attrs="{'invisible': [('promotion_enable', '=', False)]}"/>
+                                <br/>
+                                <div class="content-group mt16">
+                                    <field name="same_pro_qty"
+                                           attrs="{'invisible': [('promotion_enable', '=', False)]}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

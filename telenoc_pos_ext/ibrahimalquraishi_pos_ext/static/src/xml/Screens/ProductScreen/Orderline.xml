@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!--Add items counter in the cart-->
+    <t t-name="Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+        <xpath expr="//ul[@class='info-list']" position="after">
+           <ul class="info-list">
+                <li class="info">
+                    <strong>
+                        <t t-esc="props.line.get_promotion_line()"/>
+<!--                        <t t-set="free_quantity" t-value="props.line.get_quantity() - props.line.get_remaining_qty()"/>-->
+<!--                        Free Quantity: <t t-esc="free_quantity" />-->
+                    </strong>
+
+                </li>
+               <t t-if="props.line.get_promotion_line()">
+               <li class="info">
+                    <strong>
+                        Remaining Quantity: <t t-esc="props.line.remaining_qty"/>
+                    </strong>
+
+                </li>
+               </t>
+           </ul>
+        </xpath>
+
+    </t>
+
+</templates>

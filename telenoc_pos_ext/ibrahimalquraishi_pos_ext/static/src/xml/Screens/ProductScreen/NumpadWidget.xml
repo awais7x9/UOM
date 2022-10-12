@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!--Add items counter in the cart-->
+    <t t-name="NumpadWidget" t-inherit="point_of_sale.NumpadWidget" t-inherit-mode="extension" owl="1">
+
+        <xpath expr="//div[1]/button[8]" position="replace">
+           <button disabled="" class="mode-button disabled-mode">Disc</button>
+
+        </xpath>
+        <xpath expr="//div[1]/button[12]" position="replace">
+           <button disabled="" class="mode-button disabled-mode">Price</button>
+
+        </xpath>
+        <xpath expr="//div[1]/button[13]" position="replace">
+           <button disabled="" class="mode-button disabled-mode">+/-</button>
+
+        </xpath>
+
+
+    </t>
+</templates>
